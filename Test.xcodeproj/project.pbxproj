@@ -68,7 +68,6 @@
 		8456662B20271AA700D75D5F = {
 			isa = PBXGroup;
 			children = (
-				84E260602091A58F008F6788 /* View */,
 				84E2605F2091A588008F6788 /* Model */,
 				8456663620271AA800D75D5F /* Test */,
 				8456663520271AA800D75D5F /* Products */,
@@ -107,13 +106,6 @@
 				84E260632091A61F008F6788 /* DataError.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		84E260602091A58F008F6788 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
