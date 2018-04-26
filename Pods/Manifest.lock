@@ -1,0 +1,31 @@
+PODS:
+  - CocoaLumberjack/Default (3.4.1)
+  - CocoaLumberjack/Swift (3.4.1):
+    - CocoaLumberjack/Default
+  - SVGKit (2.0.1):
+    - CocoaLumberjack/Swift
+
+DEPENDENCIES:
+  - SVGKit (from `https://github.com/dcflow/SVGKit.git`, branch `2.x`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - CocoaLumberjack
+
+EXTERNAL SOURCES:
+  SVGKit:
+    :branch: 2.x
+    :git: https://github.com/dcflow/SVGKit.git
+
+CHECKOUT OPTIONS:
+  SVGKit:
+    :commit: 9db1a46ff7b63340680faf90de6cd3e61bf03a15
+    :git: https://github.com/dcflow/SVGKit.git
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 2e258a064cacc8eb9a2aca318e24d02a0a7fd56d
+  SVGKit: da903e69d71d9a0069a5ddb6bda96f98001b3123
+
+PODFILE CHECKSUM: 8e1c71e7f364d65f255decf983a47546859711a2
+
+COCOAPODS: 1.5.0
