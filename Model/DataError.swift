@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct dataResponErr : Decodable {
+struct DataError : Decodable {
     let status : Int
     let message : String
 }

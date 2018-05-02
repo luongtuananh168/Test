@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVGKit
 
 class CustomCell: UITableViewCell {
 
@@ -20,6 +21,35 @@ class CustomCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    var country: Country?{
+        didSet{
+            guard let unwrappedCounty = country else {
+                return
+            }
+            nameCountry.text = unwrappedCounty.name
+            capitalCountry.text = unwrappedCounty.capital
+            areCountry.text = String(format: "%f", unwrappedCounty.area)
+            population.text = String(format: "%f", unwrappedCounty.population)
+            
+            // get data imageView
+            if let urlImageCountry = unwrappedCounty.flag{
+                DispatchQueue.global(qos: .userInteractive).async {
+                    //share task async
+                    do{
+                        let url = URL(string: urlImageCountry)
+                        let data = try Data(contentsOf: url!)
+                        
+                        //update UI
+                        DispatchQueue.main.async {
+                            let imageSVG : SVGKImage = SVGKImage(data: data)
+                            self.imageCountry.image = imageSVG.uiImage
+                        }
+                    }catch{}
+                }
+            }
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
