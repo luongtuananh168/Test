@@ -8,9 +8,14 @@
 
 import UIKit
 import SVGKit
+import Kingfisher
 
+//protocol checkUrlImageLocal {
+//    func checkArray(count: Int)
+//}
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, protocolReloadTBV{
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,13 +25,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var txtSearchCapital: UITextField!
     
-
+    @IBAction func btmReload(_ sender: Any) {
+        LibraryAPI.shared.delegate = self as protocolReloadTBV
+        LibraryAPI.shared.getData(url: "https://restcountries.eu/rest/v2/all")
+    }
     
     @IBAction func searchNamebtm(_ sender: Any) {
         let urlSearchName : String = "https://restcountries.eu/rest/v2/currency/" + txtSearchName.text!
         
         LibraryAPI.shared.delegate = self as protocolReloadTBV
-        
         LibraryAPI.shared.getData(url: urlSearchName)
     }
     
@@ -34,7 +41,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let urlSearchLanguage : String = "https://restcountries.eu/rest/v2/lang/" + txtSearchLanguage.text!
         
         LibraryAPI.shared.delegate = self as protocolReloadTBV
-        
         LibraryAPI.shared.getData(url: urlSearchLanguage)
     }
     
@@ -42,24 +48,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let urlSearchCapital : String = "https://restcountries.eu/rest/v2/capital/" + txtSearchCapital.text!
         
         LibraryAPI.shared.delegate = self as protocolReloadTBV
-        
         LibraryAPI.shared.getData(url: urlSearchCapital)
     }
     
     var countries : [Country] = []
     
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        
         LibraryAPI.shared.delegate = self as protocolReloadTBV
-        
         LibraryAPI.shared.getData(url: "https://restcountries.eu/rest/v2/all")
-        
-        
-
         
         tableView.dataSource = self
         tableView.delegate  = self
@@ -90,46 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-//    func getData(urlString: String)  {
-//
-//        var status = 0
-//
-//       let url =  URL(string: urlString)
-//
-//        URLSession.shared.dataTask(with: url!) { (data, respons, err) in
-//
-//            guard let data = data else { return }
-//
-//            do{
-//
-//                if let jsonDataErr = try? JSONDecoder().decode(dataResponErr.self, from: data){
-//
-//                    status = jsonDataErr.status
-//                    if status != 0{
-//                        DispatchQueue.main.async {
-//                            self.setAlertError(status: status)
-//                        }
-//                        print("-----Eror \(status)")
-//                    }
-//
-//                }else{
-//                    let jsonData = try JSONDecoder().decode([failableDecod<Country>].self, from: data).flatMap { $0.base }
-//
-//                    self.countries = jsonData
-//                    DispatchQueue.main.async {
-//                        self.tableView.reloadData()
-//                    }
-//                }
-//
-//            }catch let respons {
-//
-//                print(respons)
-//
-//            }
-//            }.resume()
-//
-//    }
-    
+    //AlertError
     func setAlertError(status: Int){
         
         let alert = UIAlertController(title: "Error", message: "Key search error \(status) ", preferredStyle: .alert)
@@ -137,6 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let btmOk = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         
         alert.addAction(btmOk)
+        
     UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     

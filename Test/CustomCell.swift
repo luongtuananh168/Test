@@ -8,6 +8,8 @@
 
 import UIKit
 import SVGKit
+import Kingfisher
+
 
 class CustomCell: UITableViewCell {
 
@@ -33,25 +35,32 @@ class CustomCell: UITableViewCell {
             areCountry.text = String(format: "%f", unwrappedCounty.area)
             population.text = String(format: "%f", unwrappedCounty.population)
             
-            // get data imageView
-            if let urlImageCountry = unwrappedCounty.flag{
-                DispatchQueue.global(qos: .userInteractive).async {
-                    //share task async
-                    do{
-                        let url = URL(string: urlImageCountry)
-                        let data = try Data(contentsOf: url!)
-                        
-                        //update UI
-                        DispatchQueue.main.async {
-                            let imageSVG : SVGKImage = SVGKImage(data: data)
-                            self.imageCountry.image = imageSVG.uiImage
-                        }
-                    }catch{}
-                }
+            // load imageCountry
+            let url = URL(string: unwrappedCounty.flag!)
+            let processor = WebpProcessor()
+             self.imageCountry.kf.setImage(with: url, options: [.processor(processor)])
+            }
+    }
+    
+    struct WebpProcessor: ImageProcessor {
+        // `identifier` should be the same for processors with same properties/functionality
+        // It will be used when storing and retrieving the image to/from cache.
+        let identifier = "com.yourdomain.webpprocessor"
+        
+        // Convert input data/image to target image and return it.
+        func process(item: ImageProcessItem, options: KingfisherOptionsInfo) -> Image? {
+            switch item {
+            case .image(let image):
+                print("already an image")
+                return image
+            case .data(let data):
+                let imageSVG : SVGKImage = SVGKImage(data: data)
+                return imageSVG.uiImage
             }
         }
     }
-
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

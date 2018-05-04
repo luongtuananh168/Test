@@ -1,16 +1,22 @@
 PODS:
+  - Alamofire (4.7.1)
   - CocoaLumberjack/Default (3.4.1)
   - CocoaLumberjack/Swift (3.4.1):
     - CocoaLumberjack/Default
+  - Kingfisher (4.7.0)
   - SVGKit (2.0.1):
     - CocoaLumberjack/Swift
 
 DEPENDENCIES:
+  - Alamofire
+  - Kingfisher
   - SVGKit (from `https://github.com/dcflow/SVGKit.git`, branch `2.x`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
     - CocoaLumberjack
+    - Kingfisher
 
 EXTERNAL SOURCES:
   SVGKit:
@@ -23,9 +29,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/dcflow/SVGKit.git
 
 SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   CocoaLumberjack: 2e258a064cacc8eb9a2aca318e24d02a0a7fd56d
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   SVGKit: da903e69d71d9a0069a5ddb6bda96f98001b3123
 
-PODFILE CHECKSUM: 8e1c71e7f364d65f255decf983a47546859711a2
+PODFILE CHECKSUM: 5e2ffa6cc04d50073edeadbd5e9f7f960f4026f0
 
 COCOAPODS: 1.5.0

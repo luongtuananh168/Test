@@ -7,5 +7,6 @@ target 'Test' do
 
   # Pods for Test
 	pod 'SVGKit', :git => 'https://github.com/dcflow/SVGKit.git', :branch => '2.x'
-
+	pod 'Alamofire'
+	pod 'Kingfisher'
 end

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FdR-j4-5S9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="441"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCELL" rowHeight="75" id="MRC-T3-CUo" customClass="CustomCell" customModule="Test" customModuleProvider="target">
@@ -169,11 +169,23 @@
                                     <action selector="searchCapitalbtm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Fv-ii-6NP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG0-tF-Han">
+                                <rect key="frame" x="150" y="427" width="75" height="30"/>
+                                <color key="backgroundColor" red="0.77918555700000003" green="0.76964842901653618" blue="0.6336706730959426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dKp-Qq-AZH"/>
+                                </constraints>
+                                <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="btmReload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="llR-39-L9W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FdR-j4-5S9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1xY-Zk-w6c"/>
                             <constraint firstItem="hI3-4w-hU1" firstAttribute="top" secondItem="IBk-k9-BLU" secondAttribute="bottom" constant="19" id="2kb-SO-WEQ"/>
+                            <constraint firstItem="aG0-tF-Han" firstAttribute="top" secondItem="FdR-j4-5S9" secondAttribute="bottom" constant="16" id="3T9-Ld-ybq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xay-CB-6fy" secondAttribute="trailing" constant="44" id="6QE-wk-1MY"/>
                             <constraint firstItem="Xay-CB-6fy" firstAttribute="top" secondItem="hI3-4w-hU1" secondAttribute="bottom" constant="19" id="6ed-9z-HRO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xay-CB-6fy" secondAttribute="bottom" constant="63" id="85P-5S-y7z"/>
@@ -189,7 +201,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hI3-4w-hU1" secondAttribute="trailing" constant="44" id="ZXK-ou-g9a"/>
                             <constraint firstItem="IBk-k9-BLU" firstAttribute="leading" secondItem="5DM-OO-Dwe" secondAttribute="trailing" constant="40" id="fzJ-bz-5dZ"/>
                             <constraint firstItem="FdR-j4-5S9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gMs-Cc-Awc"/>
-                            <constraint firstItem="5DM-OO-Dwe" firstAttribute="top" secondItem="FdR-j4-5S9" secondAttribute="bottom" constant="35" id="ieG-yP-bML"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aG0-tF-Han" secondAttribute="trailing" constant="150" id="hCm-xj-oE8"/>
+                            <constraint firstItem="5DM-OO-Dwe" firstAttribute="top" secondItem="aG0-tF-Han" secondAttribute="bottom" constant="19" id="iKH-Ct-Gqv"/>
+                            <constraint firstItem="aG0-tF-Han" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="x4U-hM-bo6"/>
                             <constraint firstItem="LGu-Fb-kki" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="39" id="zzc-gf-Y1E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -203,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5450.3999999999996" y="-611.24437781109452"/>
+            <point key="canvasLocation" x="-5690.3999999999996" y="-642.72863568215894"/>
         </scene>
     </scenes>
 </document>
